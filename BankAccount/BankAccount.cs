@@ -28,12 +28,13 @@
     public void display() {
         Console.WriteLine("Customer Name: " + customerName);
         Console.WriteLine("Account ID: " + id);
-        Console.WriteLine("Balance: " + balance);
-        Console.WriteLine("Transactions: [");
+        Console.WriteLine("Balance: $" + balance);
+        Console.Write("Transactions: [");
         for(int i = 0; i < transactions.Count; i++) {
             Console.Write(transactions[i]);
-            if(i < (transactions.Count-1)) Console.WriteLine(", ");
+            if(i < (transactions.Count-1)) Console.Write(", ");
         }
+        Console.Write("]");
     }
 
 
