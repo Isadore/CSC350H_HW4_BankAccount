@@ -22,19 +22,21 @@
         balance+=amount;
     }
     public void withdraw(double amount) {
+        if(amount > balance) throw new Exception("Not enough funds to complete this withdrawal. $" + amount + " required. $" + balance.ToString("0.00") + " available.");
         transactions.Add(-1*amount);
         balance-=amount;
     }
     public void display() {
         Console.WriteLine("Customer Name: " + customerName);
         Console.WriteLine("Account ID: " + id);
-        Console.WriteLine("Balance: $" + balance);
+        Console.WriteLine("Balance: $" + balance.ToString("0.00"));
         Console.Write("Transactions: [");
         for(int i = 0; i < transactions.Count; i++) {
-            Console.Write(transactions[i]);
+            Console.Write((transactions[i] > 0 ? "+" : "") + transactions[i]);
             if(i < (transactions.Count-1)) Console.Write(", ");
         }
         Console.Write("]");
+        Console.WriteLine();
     }
 
 
